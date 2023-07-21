@@ -1,0 +1,19 @@
+#!/bin/sh
+
+AMOUNT=$(cat /sys/class/power_supply/BAT1/capacity)
+STATUS=$(cat /sys/class/power_supply/BAT1/status)
+
+case $STATUS in
+    Discharging)
+        printf '[-] %s%%' "$AMOUNT"
+        ;;
+    Charging)
+        printf '[+] %s%%' "$AMOUNT"
+        ;;
+    Full)
+        printf '[=] %s%%' "$AMOUNT"
+        ;;
+    *)
+        printf '[?] %s%%' "$AMOUNT"
+        ;;
+esac

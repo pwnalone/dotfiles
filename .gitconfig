@@ -1,0 +1,2 @@
+[alias]
+	quick-log = log --oneline --graph --all

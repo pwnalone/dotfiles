@@ -1,0 +1,5 @@
+e scr.prompt.vi  = true
+e scr.utf8       = true
+e scr.utf8.curvy = true
+e scr.color      = 2
+e scr.theme      = dark
