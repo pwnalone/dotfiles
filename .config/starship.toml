@@ -1,0 +1,11 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """$character"""
+
+right_format = """$all"""
+
+#
+# Starship preset configuration goes here.
+#
+# E.g. $ starship preset nerd-font-symbols
+#
