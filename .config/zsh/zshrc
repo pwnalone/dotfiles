@@ -1,0 +1,93 @@
+# Aliases
+alias sudo='sudo '
+alias nohup='nohup '
+alias cat='bat'
+alias sl='lsd'
+alias ls='lsd'
+alias la='lsd -Ah'
+alias ll='lsd -Ah -l'
+alias li='lsd -Ah -l -i'
+alias l='ll'
+alias nvim='loadnvim -O'
+alias vim='nvim'
+alias vi='nvim'
+alias v='nvim'
+alias vimdiff='nvim -d'
+alias ip='ip --color=auto'
+alias diff='diff --color=auto'
+alias pacman='pacman --color=auto'
+alias yay='yay --color=auto'
+alias tree='tree --gitignore -I .git -C'
+alias less='less -iR'
+alias d='dirs -v'
+
+for index ({1..9}) alias "$index"="cd +$index"; unset index
+
+# Exports
+[[ $PATH =~ "$HOME/.local/bin" ]] || export PATH="$HOME/.local/bin:$PATH"
+[[ $PATH =~ "$HOME/.cargo/bin" ]] || export PATH="$HOME/.cargo/bin:$PATH"
+[[ $PATH =~ "$HOME/.pyenv/bin" ]] || export PATH="$HOME/.pyenv/bin:$PATH"
+[[ $PATH =~ "$HOME/.r2env/bin" ]] || export PATH="$HOME/.r2env/bin:$PATH"
+
+# History
+HISTFILE="$XDG_CACHE_HOME/zsh/history"
+mkdir -p "$XDG_CACHE_HOME/zsh"
+HISTSIZE=10000
+SAVEHIST=10000
+
+# Options
+setopt AUTO_CD
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+setopt PUSHD_SILENT
+#setopt ALWAYS_TO_END
+#setopt COMPLETE_IN_WORD
+setopt MENU_COMPLETE
+setopt GLOB_STAR_SHORT
+setopt EXTENDED_HISTORY
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_VERIFY
+setopt SHARE_HISTORY
+setopt NO_FLOW_CONTROL
+setopt INTERACTIVE_COMMENTS
+setopt PROMPT_SUBST
+#setopt TRANSIENT_RPROMPT
+
+# Menu-Selection
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+
+bindkey -M menuselect '^[[Z' reverse-menu-complete
+
+# Zsh Nvm Customizations
+NVM_LAZY_LOAD=true
+NVM_LAZY_LOAD_EXTRA_COMMANDS=(loadnvim)
+
+# Plugins
+source "$ZDOTDIR/plugins/zsh-nvm/zsh-nvm.plugin.zsh"
+source "$ZDOTDIR/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
+source "$ZDOTDIR/plugins/zsh-completions/zsh-completions.plugin.zsh"
+source "$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
+source "$ZDOTDIR/plugins/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh"
+source "$ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
+
+# Zsh Autosuggestions Customizations
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+# Zsh History Substring Search Customizations
+bindkey -M viins '^J' history-substring-search-down
+bindkey -M viins '^K' history-substring-search-up
+bindkey -M vicmd  'j' history-substring-search-down
+bindkey -M vicmd  'k' history-substring-search-up
+
+HISTORY_SUBSTRING_SEARCH_FUZZY=1
+
+# Tab-Completion
+autoload -U compinit && compinit
+_comp_options+=(globdots)
+
+# Prompt
+eval "$(starship init zsh)"
