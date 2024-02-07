@@ -16,7 +16,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.r2env/bin:$PATH"
 
 # Ensure files are installed to the correct location.
-source .zshenv
+. ./.zshenv
 
 # Install dotfiles.
 mkdir -p "$HOME/.config"
@@ -95,7 +95,7 @@ sudo apt install -y \
 sudo chsh -s $(which zsh) "$USER"
 
 # Get the asdf command.
-source .config/asdf/asdf.sh
+. ./.config/asdf/asdf.sh
 
 # Install asdf plugins.
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs
