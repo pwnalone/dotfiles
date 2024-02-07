@@ -154,7 +154,7 @@ r2pm -i r2ghidra
 r2pm -i iref
 
 # Install Neovim.
-curl -sL https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz \
+curl -sL https://github.com/neovim/neovim/releases/download/v0.9.5/nvim-linux64.tar.gz \
     | sudo tar -zxf - -C /usr/local --strip-components=1
 
 # Install LunarVim distribution.
