@@ -16,5 +16,10 @@ export XDG_DATA_HOME="$HOME/.local/share"
 # Zsh
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
-# Nvm
-export NVM_DIR="$XDG_CONFIG_HOME/nvm"
+# Asdf
+export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
+export ASDF_DIR="$XDG_CONFIG_HOME/asdf"
+export ASDF_CONFIG_FILE="$ASDF_DIR/asdfrc"
+
+# Golang
+export GOPATH="$XDG_DATA_HOME/go"

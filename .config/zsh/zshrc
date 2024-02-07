@@ -26,8 +26,8 @@ for index ({1..9}) alias "$index"="cd +$index"; unset index
 # Exports
 [[ $PATH =~ "$HOME/.local/bin" ]] || export PATH="$HOME/.local/bin:$PATH"
 [[ $PATH =~ "$HOME/.cargo/bin" ]] || export PATH="$HOME/.cargo/bin:$PATH"
-[[ $PATH =~ "$HOME/.pyenv/bin" ]] || export PATH="$HOME/.pyenv/bin:$PATH"
 [[ $PATH =~ "$HOME/.r2env/bin" ]] || export PATH="$HOME/.r2env/bin:$PATH"
+[[ $PATH =~ "$GOPATH/bin" ]] || export PATH="$GOPATH/bin:$PATH"
 
 # History
 HISTFILE="$XDG_CACHE_HOME/zsh/history"
@@ -62,12 +62,14 @@ zmodload zsh/complist
 
 bindkey -M menuselect '^[[Z' reverse-menu-complete
 
-# Zsh Nvm Customizations
-NVM_LAZY_LOAD=true
-NVM_LAZY_LOAD_EXTRA_COMMANDS=(loadnvim)
+# Asdf
+source "$ASDF_DIR/asdf.sh"
+fpath=("$ASDF_DIR/completions" $fpath)
+
+# Golang
+source "$ASDF_DATA_DIR/plugins/golang/set-env.zsh"
 
 # Plugins
-source "$ZDOTDIR/plugins/zsh-nvm/zsh-nvm.plugin.zsh"
 source "$ZDOTDIR/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
 source "$ZDOTDIR/plugins/zsh-completions/zsh-completions.plugin.zsh"
 source "$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
