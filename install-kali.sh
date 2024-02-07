@@ -25,8 +25,8 @@ done
 # Upgrade old packages.
 sudo apt update && sudo apt upgrade -y
 
-# Uninstall default r2.
-sudo apt purge -y radare2 && sudo apt autoremove -y
+# Uninstall Neovim and r2 (packaged versions are too old).
+sudo apt purge -y neovim radare2 && sudo apt autoremove -y
 
 # Install new packages.
 sudo apt install -y \
