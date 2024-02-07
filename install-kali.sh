@@ -142,6 +142,7 @@ FONTNAME='Hermit'
 FONTPATH="$HOME/.local/share/fonts/$FONTNAME"
 wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/$FONTNAME.zip"
 mkdir -p "$FONTPATH" && unzip -d "$FONTPATH" "$FONTNAME.zip" && rm -f "$FONTNAME.zip"
+fc-cache -fv
 
 # Install GDB plugins.
 git clone https://github.com/hugsy/gef     "$HOME/.gdb/plugins/gef"
