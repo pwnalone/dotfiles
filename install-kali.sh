@@ -90,8 +90,8 @@ sudo apt install -y \
     zlib1g-dev \
     zsh
 
-# Set zsh as the default shell.
-chsh -s $(which zsh) "$USER"
+# Make zsh the default shell.
+sudo chsh -s $(which zsh) "$USER"
 
 # Get the asdf command.
 source .config/asdf/asdf.sh
