@@ -36,9 +36,7 @@ sudo apt install -y \
     cmake \
     coreutils \
     curl \
-    dstat \
     elfutils \
-    forensics-extra \
     g++-multilib \
     gcc-multilib \
     gdb-multiarch \
