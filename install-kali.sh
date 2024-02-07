@@ -16,7 +16,11 @@ export PATH="$HOME/.r2env/bin:$PATH"
 source .zshenv
 
 # Install dotfiles.
-cp -r .config .local .zshenv -t "$HOME"
+mkdir -p "$HOME/.config" "$HOME/.local/bin"
+for f in .config/* .local/bin/* .zshenv; do
+    [ -e "$HOME/$f" ] && mv "$HOME/$f" "$HOME/$f.bak"
+    ln -sf "$(realpath $f)" "$HOME/$f"
+done
 
 # Upgrade old packages.
 sudo apt update && sudo apt upgrade -y
