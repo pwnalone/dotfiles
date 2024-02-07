@@ -19,8 +19,8 @@ export PATH="$HOME/.r2env/bin:$PATH"
 source .zshenv
 
 # Install dotfiles.
-mkdir -p "$HOME/.config" "$HOME/.local/bin"
-for f in .config/* .local/bin/* .zshenv; do
+mkdir -p "$HOME/.config"
+for f in .config/* .zshenv; do
     [ -e "$HOME/$f" ] && mv "$HOME/$f" "$HOME/$f.bak"
     ln -sf "$(realpath $f)" "$HOME/$f"
 done
