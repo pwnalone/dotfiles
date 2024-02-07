@@ -115,14 +115,26 @@ asdf global nodejs latest
 asdf global golang latest
 asdf global rust   latest
 
-# Install Rust applications.
-cargo install alacritty bat fd-find feroxbuster lsd ripgrep starship tokei
+# Install Python applications.
+for pkg in frida-tools ipython meson pipenv pwntools r2env ropper; do pipx install $pkg; done
 
-# Install lazygit.
+# Install Golang applications.
 go install github.com/jesseduffield/lazygit@latest
 
-# Configure starship prompt.
+# Install Rust applications.
+cargo install bat fd-find feroxbuster lsd ripgrep starship tokei
+
+# Configure starship.
 starship preset nerd-font-symbols >> "$HOME/.config/starship.toml"
+
+# Install r2.
+r2env add radare2@git
+r2env use radare2@git
+
+# Install r2 plugins.
+r2pm -U
+r2pm -i r2ghidra
+r2pm -i iref
 
 # Install Alacritty.
 ./install-alacritty.sh
@@ -134,30 +146,15 @@ wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/$FONTNAME
 mkdir -p "$FONTPATH" && unzip -d "$FONTPATH" "$FONTNAME.zip" && rm -f "$FONTNAME.zip"
 
 # Install GDB plugins.
-mkdir -p "$HOME/.gdb/plugins"
 git clone https://github.com/hugsy/gef     "$HOME/.gdb/plugins/gef"
 git clone https://github.com/pwndbg/pwndbg "$HOME/.gdb/plugins/pwn"
 cd "$HOME/.gdb/plugins/pwn" && ./setup.sh --update && cd -
-
-# Install standalone Python applications.
-for pkg in frida-tools ipython meson pipenv pwntools r2env ropper; do
-    pipx install $pkg
-done
-
-# Install r2.
-r2env add radare2@git
-r2env use radare2@git
-
-# Install r2 plugins.
-r2pm -U
-r2pm -i r2ghidra
-r2pm -i iref
 
 # Install Neovim.
 curl -sL https://github.com/neovim/neovim/releases/download/v0.9.5/nvim-linux64.tar.gz \
     | sudo tar -zxf - -C /usr/local --strip-components=1
 
-# Install LunarVim distribution.
+# Install LunarVim (Neovim distribution).
 export LV_BRANCH='release-1.3/neovim-0.9'
 LV_INSTALL=$(mktemp)
 curl -sL "https://raw.githubusercontent.com/LunarVim/LunarVim/$LV_BRANCH/utils/installer/install.sh" -o "$LV_INSTALL"
