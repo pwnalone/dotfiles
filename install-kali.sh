@@ -40,6 +40,7 @@ sudo apt install -y \
     gdb-multiarch \
     git \
     gobuster \
+    gzip \
     imagemagick \
     john \
     jq \
@@ -69,6 +70,7 @@ sudo apt install -y \
     python3-pynvim \
     python3-venv \
     rustup \
+    scdoc \
     sleuthkit \
     socat \
     strace \
@@ -117,6 +119,9 @@ go install github.com/jesseduffield/lazygit@latest
 
 # Configure starship prompt.
 starship preset nerd-font-symbols >> "$HOME/.config/starship.toml"
+
+# Install Alacritty.
+./install-alacritty.sh
 
 # Install a nerd font.
 FONTNAME='Hermit'
