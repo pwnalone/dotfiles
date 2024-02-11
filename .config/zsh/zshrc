@@ -70,6 +70,10 @@ fpath=("$ASDF_DIR/completions" $fpath)
 # Golang
 source "$ASDF_DATA_DIR/plugins/golang/set-env.zsh"
 
+# Fzf
+source '/usr/share/doc/fzf/examples/key-bindings.zsh'
+source '/usr/share/doc/fzf/examples/completion.zsh'
+
 # Plugins
 source "$ZDOTDIR/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
 source "$ZDOTDIR/plugins/zsh-completions/zsh-completions.plugin.zsh"
