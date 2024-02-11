@@ -138,6 +138,9 @@ r2pm -U
 r2pm -i r2ghidra
 r2pm -i iref
 
+# Install Ulauncher.
+./install-ulauncher.sh
+
 # Install Alacritty.
 ./install-alacritty.sh
 
