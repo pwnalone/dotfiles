@@ -19,7 +19,7 @@ export PATH="$HOME/.r2env/bin:$PATH"
 . ./.zshenv
 
 # Install dotfiles.
-mkdir -p "$HOME/.config"
+mkdir -p "$XDG_CONFIG_HOME"
 for f in .config/* .zshenv; do
     [ -e "$HOME/$f" ] && mv "$HOME/$f" "$HOME/$f.bak"
     ln -sf "$(realpath $f)" "$HOME/$f"
@@ -96,7 +96,7 @@ sudo apt install -y \
 sudo chsh -s $(which zsh) "$USER"
 
 # Get the asdf command.
-. ./.config/asdf/asdf.sh
+. "$XDG_CONFIG_HOME/asdf/asdf.sh"
 
 # Install asdf plugins.
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs
@@ -127,7 +127,7 @@ go install github.com/jesseduffield/lazygit@latest
 cargo install bat fd-find feroxbuster lsd ripgrep starship tokei
 
 # Configure starship.
-starship preset nerd-font-symbols >> "$HOME/.config/starship.toml"
+starship preset nerd-font-symbols >> "$XDG_CONFIG_HOME/starship.toml"
 
 # Setup GDB plugins.
 cd "$XDG_CONFIG_HOME/gdb/plugins/pwn" && ./setup.sh --update && cd -
@@ -149,7 +149,7 @@ r2pm -i iref
 
 # Install a nerd font.
 FONTNAME='Hermit'
-FONTPATH="$HOME/.local/share/fonts/$FONTNAME"
+FONTPATH="$XDG_DATA_HOME/fonts/$FONTNAME"
 wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/$FONTNAME.zip"
 mkdir -p "$FONTPATH" && unzip -d "$FONTPATH" "$FONTNAME.zip" && rm -f "$FONTNAME.zip"
 fc-cache -fv
