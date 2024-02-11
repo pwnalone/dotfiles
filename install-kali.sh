@@ -40,6 +40,7 @@ sudo apt install -y \
     coreutils \
     curl \
     elfutils \
+    fzf \
     g++-multilib \
     gcc-multilib \
     gdb-multiarch \
