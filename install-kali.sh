@@ -129,6 +129,9 @@ cargo install bat fd-find feroxbuster lsd ripgrep starship tokei
 # Configure starship.
 starship preset nerd-font-symbols >> "$HOME/.config/starship.toml"
 
+# Setup GDB plugins.
+cd "$XDG_CONFIG_HOME/gdb/plugins/pwn" && ./setup.sh --update && cd -
+
 # Install r2.
 r2env add radare2@git
 r2env use radare2@git
@@ -150,11 +153,6 @@ FONTPATH="$HOME/.local/share/fonts/$FONTNAME"
 wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/$FONTNAME.zip"
 mkdir -p "$FONTPATH" && unzip -d "$FONTPATH" "$FONTNAME.zip" && rm -f "$FONTNAME.zip"
 fc-cache -fv
-
-# Install GDB plugins.
-git clone https://github.com/hugsy/gef     "$HOME/.gdb/plugins/gef"
-git clone https://github.com/pwndbg/pwndbg "$HOME/.gdb/plugins/pwn"
-cd "$HOME/.gdb/plugins/pwn" && ./setup.sh --update && cd -
 
 # Install Neovim.
 curl -sL https://github.com/neovim/neovim/releases/download/v0.9.5/nvim-linux64.tar.gz \

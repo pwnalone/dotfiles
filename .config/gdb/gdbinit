@@ -1,0 +1,20 @@
+# History
+set history save on
+set history filename ~/.cache/gdb/history
+set history size 1000
+
+# Functions
+define init-pwn
+source ~/.config/gdb/plugins/pwn/gdbinit.py
+end
+define init-gef
+source ~/.config/gdb/plugins/gef/gef.py
+end
+
+# Documentation
+document init-pwn
+Initialize pwndbg
+end
+document init-gef
+Initialize GEF
+end
