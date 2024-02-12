@@ -2,6 +2,8 @@
 
 set -e
 
+SCRIPTDIR=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
+
 JSPM=node
 PYPM=pipx
 GOPM=go
@@ -162,6 +164,8 @@ if [ $(id -u) -eq 0 ]; then
     alias sudo=''
 fi
 
+cd "$SCRIPTDIR/../"
+
 # Fetch submodules.
 git submodule update --init --recursive --progress
 
@@ -234,6 +238,8 @@ if command -v r2env 2>/dev/null; then
     r2pm -i r2ghidra
     r2pm -i iref
 fi
+
+cd "$SCRIPTDIR"
 
 # Install Ulauncher.
 ./install-ulauncher.sh
