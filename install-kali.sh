@@ -163,7 +163,7 @@ if [ $(id -u) -eq 0 ]; then
 fi
 
 # Fetch submodules.
-git submodule update --init --recursive
+git submodule update --init --recursive --progress
 
 # Ensure these directories are in our PATH for later.
 export PATH="$HOME/.cargo/bin:$PATH"
