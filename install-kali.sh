@@ -244,12 +244,12 @@ fi
 # Install a nerd font.
 FONTNAME='Hermit'
 FONTPATH="$XDG_DATA_HOME/fonts/$FONTNAME"
-wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/$FONTNAME.zip"
+wget "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/$FONTNAME.zip"
 mkdir -p "$FONTPATH" && unzip -d "$FONTPATH" "$FONTNAME.zip" && rm -f "$FONTNAME.zip"
 fc-cache -fv
 
 # Install Neovim.
-curl -sL https://github.com/neovim/neovim/releases/download/v0.9.5/nvim-linux64.tar.gz \
+curl -sL https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz \
     | sudo tar -zxf - -C /usr/local --strip-components=1
 
 # Install LunarVim (Neovim distribution).
