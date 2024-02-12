@@ -97,6 +97,7 @@ OS_OPTIONAL=(
 
     # Completely optional
     binwalk
+    flameshot
     gobuster
     hashcat
     hashcat-utils
