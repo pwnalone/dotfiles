@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Map CapsLock to Control, use Alt+Space to toggle layout, and use Right Alt as the Compose key.
+setxkbmap -model pc105 -layout us,ru -option ctrl:nocaps -option grp:alt_space_toggle -option compose:ralt
+
+# Set DPMS timeout (to turn off the monitor after a period of inactivity).
+xset dpms 0 0 600

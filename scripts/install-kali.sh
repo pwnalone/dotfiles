@@ -189,7 +189,7 @@ export PATH="$HOME/.r2env/bin:$PATH"
 
 # Install dotfiles.
 mkdir -p "$XDG_CONFIG_HOME"
-for f in .config/* .zshenv; do
+for f in .config/* .xprofile .zshenv; do
     [ -e "$HOME/$f" ] && mv "$HOME/$f" "$HOME/$f.bak"
     ln -sf "$(realpath $f)" "$HOME/$f"
 done
