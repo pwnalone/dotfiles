@@ -255,7 +255,4 @@ curl -sL https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.
     | sudo tar -zxf - -C /usr/local --strip-components=1
 
 # Install LunarVim (Neovim distribution).
-export LV_BRANCH='release-1.3/neovim-0.9'
-LV_INSTALL=$(mktemp)
-curl -sL "https://raw.githubusercontent.com/LunarVim/LunarVim/$LV_BRANCH/utils/installer/install.sh" -o "$LV_INSTALL"
-bash "$LV_INSTALL" && rm -f "$LV_INSTALL"
+LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
