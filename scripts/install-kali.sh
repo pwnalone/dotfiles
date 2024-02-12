@@ -159,6 +159,15 @@ PY_PACKAGES=(${PY_REQUIRED[@]} ${PY_OPTIONAL[@]})
 GO_PACKAGES=(${GO_REQUIRED[@]} ${GO_OPTIONAL[@]})
 RS_PACKAGES=(${RS_REQUIRED[@]} ${RS_OPTIONAL[@]})
 
+# Issue warning if we are running as root without the '--root' flag.
+if [ $(id -u) -eq 0 ] && [ "$1" != '--root' ]; then
+    echo "Warning: This script should NOT be run as root unless YOU ARE root."
+    echo "         Sudo will be used when required."
+    echo
+    echo "Rerun with '--root' if you know what you are doing."
+    exit 1
+fi
+
 # Sudo not needed if running as root.
 if [ $(id -u) -eq 0 ]; then
     alias sudo=''
