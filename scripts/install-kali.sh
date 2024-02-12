@@ -247,12 +247,8 @@ cd "$SCRIPTDIR"
 # Install Alacritty.
 ./install-alacritty.sh
 
-# Install a nerd font.
-FONTNAME='Hermit'
-FONTPATH="$XDG_DATA_HOME/fonts/$FONTNAME"
-wget "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/$FONTNAME.zip"
-mkdir -p "$FONTPATH" && unzip -d "$FONTPATH" "$FONTNAME.zip" && rm -f "$FONTNAME.zip"
-fc-cache -fv
+# Install nerd font.
+./install-nerd-font.sh
 
 # Install Neovim.
 curl -sL https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz \
