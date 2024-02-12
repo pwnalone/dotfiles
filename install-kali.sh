@@ -2,6 +2,161 @@
 
 set -e
 
+JSPM=node
+PYPM=pipx
+GOPM=go
+RSPM=cargo
+
+OS_REQUIRED=(
+    # Required by many things
+    bash
+    build-essential
+    cmake
+    coreutils
+    curl
+    g++
+    gcc
+    git
+    gzip
+    make
+    pkgconf
+    python3
+    python3-pip
+    python3-setuptools
+    python3-venv
+    unzip
+    wget
+    zip
+    zsh
+
+    # Required to update the fontconfig cache
+    fontconfig
+
+    # Required by Tmux config
+    fzf
+
+    # Required by GDB plugins
+    gdb
+
+    # Required to install Python applications
+    pipx
+
+    # Required by asdf-python
+    libbz2-dev
+    libffi-dev
+    liblzma-dev
+    libncurses-dev
+    libreadline-dev
+    libsqlite3-dev
+    libssl-dev
+    libxml2-dev
+    libxmlsec1-dev
+    tk-dev
+    xz-utils
+    zlib1g-dev
+)
+OS_OPTIONAL=(
+    # Optionally required by LunarVim
+    python3-pynvim
+
+    # Native GCC support for 32-bit architectures
+    g++-multilib
+    gcc-multilib
+
+    # Useful GDB packages
+    gdb-doc
+    gdb-multiarch
+    gdbserver
+
+    # Manual pages
+    man-db
+    manpages
+
+    # Common tools
+    diffutils
+    findutils
+    jq
+    less
+    moreutils
+    plocate
+    tree
+    xxd
+
+    # Binary tools
+    binutils
+    elfutils
+    ltrace
+    nasm
+    patchelf
+    strace
+
+    # Browser
+    firefox-esr
+
+    # Completely optional
+    binwalk
+    gobuster
+    hashcat
+    hashcat-utils
+    imagemagick
+    john
+    nmap
+    seclists
+    sleuthkit
+    socat
+    tcpdump
+    upx-ucl
+)
+
+JS_REQUIRED=(
+)
+JS_OPTIONAL=(
+)
+
+PY_REQUIRED=(
+)
+PY_OPTIONAL=(
+    # A better way to install radare2
+    r2env
+
+    # Completely optional
+    frida-tools
+    ipython
+    meson
+    pipenv
+    pwntools
+    ropper
+)
+
+GO_REQUIRED=(
+)
+GO_OPTIONAL=(
+    # Optionally required by LunarVim
+    github.com/jesseduffield/lazygit@latest
+)
+
+RS_REQUIRED=(
+    # Required by Zsh config
+    bat
+    lsd
+    starship
+)
+RS_OPTIONAL=(
+    # Optionally required by LunarVim
+    fd-find
+    ripgrep
+
+    # Completely optional
+    feroxbuster
+    tokei
+)
+
+OS_PACKAGES=(${OS_REQUIRED[@]} ${OS_OPTIONAL[@]})
+JS_PACKAGES=(${JS_REQUIRED[@]} ${JS_OPTIONAL[@]})
+PY_PACKAGES=(${PY_REQUIRED[@]} ${PY_OPTIONAL[@]})
+GO_PACKAGES=(${GO_REQUIRED[@]} ${GO_OPTIONAL[@]})
+RS_PACKAGES=(${RS_REQUIRED[@]} ${RS_OPTIONAL[@]})
+
 # Sudo not needed if running as root.
 if [ $(id -u) -eq 0 ]; then
     alias sudo=''
@@ -28,69 +183,11 @@ done
 # Upgrade old packages.
 sudo apt update && sudo apt upgrade -y
 
-# Uninstall Neovim and r2 (packaged versions are too old).
-sudo apt purge -y neovim radare2 && sudo apt autoremove -y
-
 # Install new packages.
-sudo apt install -y \
-    binutils \
-    binwalk \
-    build-essential \
-    cmake \
-    coreutils \
-    curl \
-    elfutils \
-    fzf \
-    g++-multilib \
-    gcc-multilib \
-    gdb-multiarch \
-    git \
-    gobuster \
-    gzip \
-    imagemagick \
-    john \
-    jq \
-    libbz2-dev \
-    libffi-dev \
-    libfontconfig-dev \
-    libfreetype-dev \
-    liblzma-dev \
-    libncurses-dev \
-    libreadline-dev \
-    libsqlite3-dev \
-    libssl-dev \
-    libxcb-xfixes0-dev \
-    libxkbcommon-dev \
-    libxml2-dev \
-    libxmlsec1-dev \
-    ltrace \
-    man-db \
-    moreutils \
-    nasm \
-    nmap \
-    patchelf \
-    pipx \
-    pkg-config \
-    python3 \
-    python3-pip \
-    python3-pynvim \
-    python3-venv \
-    rustup \
-    scdoc \
-    sleuthkit \
-    socat \
-    strace \
-    tcpdump \
-    tk-dev \
-    tree \
-    unzip \
-    upx-ucl \
-    wget \
-    xxd \
-    xz-utils \
-    zip \
-    zlib1g-dev \
-    zsh
+sudo apt install -y "${OS_PACKAGES[@]}"
+
+# Uninstall Neovim and radare2 (the packaged versions are too old).
+sudo apt purge -y neovim radare2
 
 # Make zsh the default shell.
 sudo chsh -s $(which zsh) "$USER"
@@ -117,14 +214,11 @@ asdf global nodejs latest
 asdf global golang latest
 asdf global rust   latest
 
-# Install Python applications.
-for pkg in frida-tools ipython meson pipenv pwntools r2env ropper; do pipx install $pkg; done
-
-# Install Golang applications.
-go install github.com/jesseduffield/lazygit@latest
-
-# Install Rust applications.
-cargo install bat fd-find feroxbuster lsd ripgrep starship tokei
+# Install Node/Python/Go/Rust applications.
+[ ${#JS_PACKAGES[@]} -ne 0 ] && $JSPM install "${JS_PACKAGES[@]}"
+[ ${#PY_PACKAGES[@]} -ne 0 ] && $PYPM install "${PY_PACKAGES[@]}"
+[ ${#GO_PACKAGES[@]} -ne 0 ] && $GOPM install "${GO_PACKAGES[@]}"
+[ ${#RS_PACKAGES[@]} -ne 0 ] && $RSPM install "${RS_PACKAGES[@]}"
 
 # Configure starship.
 starship preset nerd-font-symbols >> "$XDG_CONFIG_HOME/starship.toml"
@@ -132,14 +226,14 @@ starship preset nerd-font-symbols >> "$XDG_CONFIG_HOME/starship.toml"
 # Setup GDB plugins.
 cd "$XDG_CONFIG_HOME/gdb/plugins/pwn" && ./setup.sh --update && cd -
 
-# Install r2.
-r2env add radare2@git
-r2env use radare2@git
-
-# Install r2 plugins.
-r2pm -U
-r2pm -i r2ghidra
-r2pm -i iref
+# Install radare2 and plugins if r2env was installed.
+if command -v r2env 2>/dev/null; then
+    r2env add radare2@git
+    r2env use radare2@git
+    r2pm -U
+    r2pm -i r2ghidra
+    r2pm -i iref
+fi
 
 # Install Ulauncher.
 ./install-ulauncher.sh

@@ -5,6 +5,9 @@ set -e
 PREFIX='/usr/local'
 TMPDIR=$(mktemp -d)
 
+# Install required dependencies.
+sudo apt install -y cmake gzip pkg-config libfreetype-dev libfontconfig-dev libxcb-xfixes0-dev libxkbcommon-dev python3 scdoc
+
 # Clone/build Alacritty.
 git clone https://github.com/alacritty/alacritty "$TMPDIR" && cd "$TMPDIR" && cargo build --release
 
