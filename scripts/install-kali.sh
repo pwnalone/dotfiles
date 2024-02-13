@@ -73,6 +73,9 @@ OS_OPTIONAL=(
     gdb-multiarch
     gdbserver
 
+    # Web browsers
+    firefox-esr
+
     # Manual pages
     man-db
     manpages
@@ -94,9 +97,6 @@ OS_OPTIONAL=(
     nasm
     patchelf
     strace
-
-    # Browser
-    firefox-esr
 
     # Completely optional
     flameshot
@@ -252,7 +252,7 @@ cd "$SCRIPTDIR"
 # Install nerd font.
 ./install-nerd-font.sh
 
-# Edit XFCE settings.
+# Configure Xfce.
 ./xfconf-query.sh
 
 # Install Neovim.
