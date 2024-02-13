@@ -4,7 +4,7 @@ set -e
 
 SCRIPTDIR=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
 
-JSPM=node
+JSPM=npm
 PYPM=pipx
 GOPM=go
 RSPM=cargo
@@ -106,6 +106,9 @@ OS_OPTIONAL=(
 JS_REQUIRED=(
 )
 JS_OPTIONAL=(
+    # Optionally required by LunarVim
+    neovim
+    tree-sitter-cli
 )
 
 PY_REQUIRED=(
@@ -221,10 +224,10 @@ asdf global golang latest
 asdf global rust   latest
 
 # Install Node/Python/Go/Rust applications.
-[ ${#JS_PACKAGES[@]} -ne 0 ] && $JSPM install "${JS_PACKAGES[@]}"
-[ ${#PY_PACKAGES[@]} -ne 0 ] && $PYPM install "${PY_PACKAGES[@]}"
-[ ${#GO_PACKAGES[@]} -ne 0 ] && $GOPM install "${GO_PACKAGES[@]}"
-[ ${#RS_PACKAGES[@]} -ne 0 ] && $RSPM install "${RS_PACKAGES[@]}"
+[ ${#JS_PACKAGES[@]} -ne 0 ] && $JSPM install -g "${JS_PACKAGES[@]}"
+[ ${#PY_PACKAGES[@]} -ne 0 ] && $PYPM install    "${PY_PACKAGES[@]}"
+[ ${#GO_PACKAGES[@]} -ne 0 ] && $GOPM install    "${GO_PACKAGES[@]}"
+[ ${#RS_PACKAGES[@]} -ne 0 ] && $RSPM install    "${RS_PACKAGES[@]}"
 
 # Configure starship.
 starship preset nerd-font-symbols >> "$XDG_CONFIG_HOME/starship.toml"
@@ -260,4 +263,5 @@ curl -sL https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.
     | sudo tar -zxf - -C /usr/local --strip-components=1
 
 # Install LunarVim (Neovim distribution).
-LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
+LV_SCRIPT='https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh'
+LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s $LV_SCRIPT) --no-install-dependencies
