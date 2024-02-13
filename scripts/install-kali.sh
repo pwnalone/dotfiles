@@ -186,13 +186,15 @@ for f in .config/* .xprofile .zshenv; do
     ln -sf "$(realpath $f)" "$HOME/$f"
 done
 
+mv "$HOME/.xprofile" "$HOME/.xsessionrc"  # Debian-specific nonsense
+
 # Upgrade old packages.
 sudo apt update && sudo apt upgrade -y
 
 # Install new packages.
 sudo apt install -y "${OS_PACKAGES[@]}"
 
-# Uninstall Neovim and radare2 (the packaged versions are too old).
+# Uninstall Neovim and radare2 -- the packaged versions are too old.
 sudo apt purge -y neovim radare2
 
 # Make zsh the default shell.
