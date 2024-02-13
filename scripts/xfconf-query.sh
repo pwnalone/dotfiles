@@ -10,10 +10,16 @@ for property in $(xfconf-query -c xfce4-desktop -l | grep 'workspace0/last-image
 done
 
 # Disable desktop icons.
-xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-filesystem  -s false
-xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-home        -s false
-xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-removable   -s false
-xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-trash       -s false
+xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-filesystem  -n -t bool -s false
+xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-home        -n -t bool -s false
+xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-removable   -n -t bool -s false
+xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-trash       -n -t bool -s false
+
+# Edit keyboard layouts.
+xfconf-query -c keyboard-layout -p /Default/XkbDisable         -n -t bool   -s false
+xfconf-query -c keyboard-layout -p /Default/XkbLayout          -n -t string -s us,ru
+xfconf-query -c keyboard-layout -p /Default/XkbOptions/Compose -n -t string -s compose:ralt
+xfconf-query -c keyboard-layout -p /Default/XkbOptions/Group   -n -t string -s grp:ctrl_alt_toggle
 
 # Enable reverse scrolling for touchpads.
 for property in $(xfconf-query -c xfce4-desktop -l | grep 'Touchpad/ReverseScrolling'); do
