@@ -252,6 +252,9 @@ cd "$SCRIPTDIR"
 # Install nerd font.
 ./install-nerd-font.sh
 
+# Edit XFCE settings.
+./xfconf-query.sh
+
 # Install Neovim.
 curl -sL https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz \
     | sudo tar -zxf - -C /usr/local --strip-components=1
