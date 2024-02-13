@@ -230,7 +230,8 @@ asdf global rust   latest
 [ ${#RS_PACKAGES[@]} -ne 0 ] && $RSPM install    "${RS_PACKAGES[@]}"
 
 # Configure starship.
-starship preset nerd-font-symbols >> "$XDG_CONFIG_HOME/starship.toml"
+cp "$XDG_CONFIG_HOME/starship/starship.toml.in" "$XDG_CONFIG_HOME/starship/starship.toml"
+starship preset nerd-font-symbols >> "$XDG_CONFIG_HOME/starship/starship.toml"
 
 # Setup GDB plugins.
 cd "$XDG_CONFIG_HOME/gdb/plugins/pwn" && ./setup.sh --update && cd -

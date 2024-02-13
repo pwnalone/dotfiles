@@ -23,3 +23,6 @@ export ASDF_CONFIG_FILE="$ASDF_DIR/asdfrc"
 
 # Golang
 export GOPATH="$XDG_DATA_HOME/go"
+
+# Starship
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
