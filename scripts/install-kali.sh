@@ -58,6 +58,9 @@ OS_REQUIRED=(
     zlib1g-dev
 )
 OS_OPTIONAL=(
+    # Kali Linux meta packages (core < headless < default < large < everything)
+    kali-linux-default
+
     # Optionally required by LunarVim
     python3-pynvim
 
@@ -96,19 +99,8 @@ OS_OPTIONAL=(
     firefox-esr
 
     # Completely optional
-    binwalk
     flameshot
-    gobuster
-    hashcat
-    hashcat-utils
     imagemagick
-    john
-    nmap
-    seclists
-    sleuthkit
-    socat
-    tcpdump
-    upx-ucl
 )
 
 JS_REQUIRED=(
