@@ -86,6 +86,9 @@ autoload -Uz compinit
 # Enable menu selection for completions.
 zstyle ':completion:*' menu select
 
+# Automatically update the list of known commands when new executables are added to the PATH.
+zstyle ':completion:*' rehash true
+
 # Make completions case-/hyphen-insensitive and match partial words/substrings.
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]-_}={[:upper:][:lower:]_-}' 'r:|=*' 'l:|=* r:|=*'
 
