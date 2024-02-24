@@ -22,9 +22,9 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # ZSH_AUTOSUGGEST_HISTORY_IGNORE='*\#*'
 
 # Zsh History Substring Search Customizations
-bindkey -M vicmd '^J' history-substring-search-down
-bindkey -M vicmd '^K' history-substring-search-up
-bindkey -M viins '^J' history-substring-search-down
-bindkey -M viins '^K' history-substring-search-up
+bindkey -M vicmd '^N' history-substring-search-down
+bindkey -M vicmd '^P' history-substring-search-up
+bindkey -M viins '^N' history-substring-search-down
+bindkey -M viins '^P' history-substring-search-up
 
 HISTORY_SUBSTRING_SEARCH_FUZZY=1
