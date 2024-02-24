@@ -1,25 +1,43 @@
-alias sudo='sudo '
+# Expand aliases after these commands.
 alias nohup='nohup '
+alias sudo='sudo '
+
+# Cat
 alias cat='bat'
-alias sl='lsd'
-alias ls='lsd'
-alias la='lsd -Ah'
-alias ll='lsd -Ah -l'
-alias li='lsd -Ah -l -i'
+
+# Git
+alias g='git'
+
+# Ls
 alias l='ll'
+alias la='lsd -Ah'
+alias li='lsd -Ah -l -i'
+alias ll='lsd -Ah -l'
+alias ls='lsd'
+alias sl='lsd'
+
+# Vim
 alias lvim='lvim -O'
-alias nvim='lvim -O'
-alias vim='nvim'
-alias vi='nvim'
+alias nvim='lvim'
 alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
 alias vimdiff='nvim -d'
-alias ip='ip --color=auto'
+
+# Colorize the output of these commands.
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
+alias ip='ip --color=auto'
 alias pacman='pacman --color=auto'
 alias yay='yay --color=auto'
-alias tree='tree --gitignore -I .git -C'
+
+# Always colorize the directory tree and ignore .git directories and files from .gitignore.
+alias tree='tree -C -I .git --gitignore'
+
+# Make searches case-insensitive and interpret ANSI "color" escape sequences.
 alias less='less -iR'
+
+# Easily display and navigate the directory stack.
 alias d='dirs -v'
 
 for index ({1..9}) alias "$index"="cd +$index"; unset index
