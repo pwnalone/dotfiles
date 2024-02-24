@@ -1,3 +1,6 @@
+# Set the width of a tab to 4 spaces.
+tabs -4
+
 setopt AUTO_CD
 setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
