@@ -31,8 +31,8 @@ alias ip='ip --color=auto'
 alias pacman='pacman --color=auto'
 alias yay='yay --color=auto'
 
-# Always colorize the directory tree and ignore .git directories and files from .gitignore.
-alias tree='tree -C -I .git --gitignore'
+# Always colorize the directory tree and ignore .git(hub) directories and files from .gitignore.
+alias tree='tree -C -I .git -I .github --gitignore'
 
 # Make searches case-insensitive and interpret ANSI "color" escape sequences.
 alias less='less -iR'
