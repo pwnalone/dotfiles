@@ -28,3 +28,7 @@
 [submodule ".config/gdb/plugins/pwn"]
 	path = .config/gdb/plugins/pwn
 	url = https://github.com/pwndbg/pwndbg
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = https://github.com/pwnalone/neovim
+	branch = distro/lazy
