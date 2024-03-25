@@ -7,6 +7,7 @@ alias cat='bat'
 
 # Git
 alias g='git'
+alias gg='lazygit'
 
 # Ls
 alias l='ll'
