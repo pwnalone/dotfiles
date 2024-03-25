@@ -17,8 +17,7 @@ alias ls='lsd'
 alias sl='lsd'
 
 # Vim
-alias lvim='lvim -O'
-alias nvim='lvim'
+alias nvim='nvim -o "+silent only"'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
