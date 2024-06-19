@@ -212,20 +212,20 @@ sudo chsh -s $(which zsh) "$USER"
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs
 asdf plugin add python https://github.com/asdf-community/asdf-python
 asdf plugin add golang https://github.com/asdf-community/asdf-golang
-asdf plugin add rust   https://github.com/asdf-community/asdf-rust
 
 # Install language toolchains/runtimes.
 asdf install nodejs latest
 asdf install python latest:2
 asdf install python latest:3
 asdf install golang latest
-asdf install rust   latest
 
 # Set default versions of language toolchains/runtimes.
 asdf global python system latest:3 latest:2
 asdf global nodejs latest
 asdf global golang latest
-asdf global rust   latest
+
+# Install Rust.
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --component rust-src
 
 # Install Node/Python/Go/Rust applications.
 [ ${#JS_PACKAGES[@]} -ne 0 ] && $JSPM install -g "${JS_PACKAGES[@]}"
