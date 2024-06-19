@@ -245,8 +245,9 @@ if command -v r2env 2>/dev/null; then
     r2env add radare2@git
     r2env use radare2@git
     r2pm -U
-    r2pm -i r2ghidra
     r2pm -i iref
+    r2pm -i r2ghidra
+    r2pm -i r2ghidra-sleigh
 fi
 
 cd "$SCRIPTDIR"
