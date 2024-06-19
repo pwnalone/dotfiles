@@ -220,7 +220,7 @@ asdf install python latest:3
 asdf install golang latest
 
 # Set default versions of language toolchains/runtimes.
-asdf global python system latest:3 latest:2
+asdf global python latest:3 latest:2
 asdf global nodejs latest
 asdf global golang latest
 
