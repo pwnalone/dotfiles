@@ -266,7 +266,3 @@ cd "$SCRIPTDIR"
 # Install Neovim.
 curl -sL https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz \
     | sudo tar -zxf - -C /usr/local --strip-components=1
-
-# Install LunarVim (Neovim distribution).
-LV_SCRIPT='https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh'
-LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s $LV_SCRIPT) --no-install-dependencies
