@@ -26,6 +26,7 @@ OS_REQUIRED=(
     python3-pip
     python3-setuptools
     python3-venv
+    tar
     unzip
     wget
     zip
@@ -88,6 +89,7 @@ OS_OPTIONAL=(
     moreutils
     plocate
     tree
+    xsel
     xxd
 
     # Binary tools
