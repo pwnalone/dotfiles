@@ -168,7 +168,9 @@ fi
 
 # Sudo not needed if running as root.
 if [ $(id -u) -eq 0 ]; then
-    alias sudo=''
+    function sudo {
+        "$@"
+    }
 fi
 
 cd "$SCRIPTDIR/../"
