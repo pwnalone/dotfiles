@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# vi: ts=4 sts=4 sw=4 et
+# vi: ts=4 sw=4 et
 
 set -Eeuo pipefail
 
@@ -21,12 +21,8 @@ sudo pacman --noconfirm --needed -S \
     tmux \
     zsh
 
-# Ensure these directories are in our PATH for later.
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-
 # Ensure files are installed to the correct location.
-. ./.zshenv
+. .zshenv
 
 # Install dotfiles.
 mkdir -p "$XDG_CONFIG_HOME"
@@ -36,6 +32,6 @@ for f in .config/*; do
     ln -s "../.dotfiles/$f" "$HOME/$f"
 done
 
-# Add NerdFont symbols to the Starship configuration.
-cp $XDG_CONFIG_HOME/starship/starship.toml.in $XDG_CONFIG_HOME/starship/starship.toml
-starship preset nerd-font-symbols >>$XDG_CONFIG_HOME/starship/starship.toml
+# Download Tmux plugins with the Tmux Plugin Manager.
+git clone https://github.com/tmux-plugins/tpm $XDG_CONFIG_HOME/tmux/plugins/tpm
+$XDG_CONFIG_HOME/tmux/plugins/tpm/bin/install_plugins
