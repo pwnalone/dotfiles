@@ -15,10 +15,9 @@ alias la='lsd -Ah'
 alias li='lsd -Ah -l -i'
 alias ll='lsd -Ah -l'
 alias ls='lsd'
-alias sl='lsd'
+alias sl='ls'
 
 # Vim
-alias nvim='nvim -o "+silent only"'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
@@ -35,7 +34,7 @@ alias yay='yay --color=auto'
 alias tree='tree -C -I .git -I .github --gitignore'
 
 # Make searches case-insensitive and interpret ANSI "color" escape sequences.
-alias less='less -iR'
+alias less='less -i -R'
 
 # Easily display and navigate the directory stack.
 alias d='dirs -v'

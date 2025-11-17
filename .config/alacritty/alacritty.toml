@@ -1,3 +1,4 @@
+[general]
 import                          = [ "~/.config/alacritty/alacritty-theme/themes/citylights.toml" ]
 
 live_config_reload              = true
@@ -20,7 +21,7 @@ normal                          = { family = "Hurmit Nerd Font", style = "Regula
 bold                            = { family = "Hurmit Nerd Font", style = "Bold"        }
 italic                          = { family = "Hurmit Nerd Font", style = "Italic"      }
 bold_italic                     = { family = "Hurmit Nerd Font", style = "Bold Italic" }
-size                            = 8
+size                            = 11
 
 [colors]
 transparent_background_colors   = true

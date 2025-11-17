@@ -1,1 +1,10 @@
-zshrc
+source "$ZDOTDIR/config/aliases.zsh"
+source "$ZDOTDIR/config/completions.zsh"
+source "$ZDOTDIR/config/exports.zsh"
+source "$ZDOTDIR/config/history.zsh"
+source "$ZDOTDIR/config/integration.zsh"
+source "$ZDOTDIR/config/keymaps.zsh"
+source "$ZDOTDIR/config/options.zsh"
+source "$ZDOTDIR/config/plugins.zsh"
+
+eval "$(starship init zsh)"

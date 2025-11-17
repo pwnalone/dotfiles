@@ -16,19 +16,3 @@
 [submodule ".config/alacritty/alacritty-theme"]
 	path = .config/alacritty/alacritty-theme
 	url = https://github.com/alacritty/alacritty-theme
-[submodule ".config/asdf"]
-	path = .config/asdf
-	url = https://github.com/asdf-vm/asdf.git
-[submodule ".config/tmux/plugins/tpm"]
-	path = .config/tmux/plugins/tpm
-	url = https://github.com/tmux-plugins/tpm
-[submodule ".config/gdb/plugins/gef"]
-	path = .config/gdb/plugins/gef
-	url = https://github.com/hugsy/gef
-[submodule ".config/gdb/plugins/pwn"]
-	path = .config/gdb/plugins/pwn
-	url = https://github.com/pwndbg/pwndbg
-[submodule ".config/nvim"]
-	path = .config/nvim
-	url = https://github.com/pwnalone/neovim
-	branch = distro/lazy

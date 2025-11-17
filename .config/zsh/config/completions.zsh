@@ -108,7 +108,6 @@ zstyle '*' single-ignored show
 
 # Get extra completions.
 source "$ZDOTDIR/plugins/zsh-completions/zsh-completions.plugin.zsh"
-fpath+=("$ASDF_DIR/completions")
 
 # Initialize completion.
 compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"

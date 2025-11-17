@@ -5,24 +5,18 @@ export VISUAL=nvim
 # Browser
 export BROWSER=firefox
 
-# Man Pages
+# Manual Pages
 export MANPAGER='nvim +Man!'
 
 # XDG
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
 
-# Zsh
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-
-# Asdf
-export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
-export ASDF_DIR="$XDG_CONFIG_HOME/asdf"
-export ASDF_CONFIG_FILE="$ASDF_DIR/asdfrc"
-
-# Golang
+# XDG Compliancy
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GOPATH="$XDG_DATA_HOME/go"
-
-# Starship
+export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"

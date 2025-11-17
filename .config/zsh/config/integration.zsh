@@ -1,0 +1,2 @@
+# Fzf
+eval "$(fzf --zsh)"
