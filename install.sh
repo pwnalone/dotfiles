@@ -14,6 +14,7 @@ yay --noconfirm --needed -S \
     bat \
     binutils \
     bridge-utils \
+    checksec \
     clang \
     cmake \
     curl \
@@ -30,9 +31,8 @@ yay --noconfirm --needed -S \
     gdb \
     git \
     gptfdisk \
-    tectonic \
-    imagemagick \
     htop \
+    imagemagick \
     inetutils \
     iproute2 \
     iputils \
@@ -64,12 +64,15 @@ yay --noconfirm --needed -S \
     pciutils \
     plocate \
     podman \
+    pwndbg \
     ripgrep \
     rizin \
+    ropper \
     socat \
     starship \
     strace \
     tcpdump \
+    tectonic \
     tmux \
     tokei \
     tree \
