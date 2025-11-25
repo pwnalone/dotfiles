@@ -12,17 +12,77 @@ set -Eeuo pipefail
 yay --noconfirm --needed -S \
     alacritty \
     bat \
+    binutils \
+    bridge-utils \
+    clang \
+    cmake \
+    curl \
+    diffutils \
+    distrobox \
+    dog \
+    duf \
+    fastfetch \
     fd \
+    findutils \
+    flatpak \
     fzf \
+    gcc \
     gdb \
     git \
+    gptfdisk \
+    tectonic \
+    imagemagick \
+    htop \
+    inetutils \
+    iproute2 \
+    iputils \
+    iw \
+    jq \
     lazygit \
+    ldns \
+    less \
     lsd \
+    ltrace \
+    make \
+    man-db \
+    man-pages \
+    meson \
+    moreutils \
+    ncdu \
+    neovim \
     nerd-fonts \
+    net-tools \
+    node \
+    noto-fonts \
+    noto-fonts-cjk \
+    noto-fonts-emoji \
+    noto-fonts-extra \
+    npm \
+    openbsd-netcat \
+    openssh \
+    pacman-contrib \
+    pciutils \
+    plocate \
+    podman \
     ripgrep \
     rizin \
+    socat \
     starship \
+    strace \
+    tcpdump \
     tmux \
+    tokei \
+    tree \
+    tree-sitter-cli \
+    unzip \
+    usbutils \
+    vim \
+    wget \
+    which \
+    wireguard-tools \
+    wl-clipboard \
+    yt-dlp \
+    zip \
     zsh
 
 # Ensure files are installed to the correct location.
