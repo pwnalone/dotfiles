@@ -1,30 +1,28 @@
 [general]
-import                          = [ "~/.config/alacritty/alacritty-theme/themes/citylights.toml" ]
-
-live_config_reload              = true
-
-ipc_socket                      = true
+import = ["~/.config/alacritty/alacritty-theme/themes/citylights.toml"]
+ipc_socket = true
+live_config_reload = true
 
 [window]
-padding                         = { x = 5, y = 5 }
-dynamic_padding                 = true
-startup_mode                    = "Maximized"
-decorations                     = "None"
-opacity                         = 0.95
+decorations = "None"
+dynamic_padding = true
+opacity = 0.95
+padding = { x = 5, y = 5 }
+startup_mode = "Maximized"
 
 [scrolling]
-history                         = 10000
-multiplier                      = 3
+history = 10000
+multiplier = 3
 
 [font]
-normal                          = { family = "Hurmit Nerd Font", style = "Regular"     }
-bold                            = { family = "Hurmit Nerd Font", style = "Bold"        }
-italic                          = { family = "Hurmit Nerd Font", style = "Italic"      }
-bold_italic                     = { family = "Hurmit Nerd Font", style = "Bold Italic" }
-size                            = 11
+bold = { family = "Hurmit Nerd Font", style = "Bold" }
+bold_italic = { family = "Hurmit Nerd Font", style = "Bold Italic" }
+italic = { family = "Hurmit Nerd Font", style = "Italic" }
+normal = { family = "Hurmit Nerd Font", style = "Regular" }
+size = 11
 
 [colors]
-transparent_background_colors   = true
+transparent_background_colors = true
 
 [mouse]
-hide_when_typing                = true
+hide_when_typing = true
