@@ -4,8 +4,12 @@
 
 set -Eeuo pipefail
 
+#
 # Install some utilities for a nicer dev environment.
-sudo pacman --noconfirm --needed -S \
+#
+# Use yay instead of pacman to avoid having to enter a password if everything is already installed.
+#
+yay --noconfirm --needed -S \
     alacritty \
     bat \
     fd \
