@@ -32,7 +32,7 @@ sudo apt install -y \
     fonts-noto \
     fzf \
     gcc \
-    gdb \
+    gdb-multiarch \
     gdisk \
     ghidra \
     git \
