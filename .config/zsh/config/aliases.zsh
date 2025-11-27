@@ -3,7 +3,8 @@ alias nohup='nohup '
 alias sudo='sudo '
 
 # Cat
-alias cat='bat'
+alias bat='batcat'
+alias cat='batcat'
 
 # Git
 alias g='git'
