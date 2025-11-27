@@ -34,6 +34,7 @@ sudo apt install -y \
     gcc \
     gdb \
     gdisk \
+    ghidra \
     git \
     htop \
     imagemagick \
@@ -62,7 +63,9 @@ sudo apt install -y \
     podman \
     ripgrep \
     rizin \
+    rizin-cutter \
     ropper \
+    rz-ghidra \
     socat \
     strace \
     tcpdump \
