@@ -6,6 +6,9 @@ alias sudo='sudo '
 alias bat='batcat'
 alias cat='batcat'
 
+# Fd
+alias fd='fdfind'
+
 # Git
 alias g='git'
 alias gg='lazygit'
