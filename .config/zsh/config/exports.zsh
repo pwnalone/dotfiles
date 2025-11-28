@@ -1,3 +1,4 @@
+[[ $PATH =~ "/usr/share/cargo/bin" ]] || export PATH="/usr/share/cargo/bin:$PATH"
 [[ $PATH =~ "$HOME/.local/bin" ]] || export PATH="$HOME/.local/bin:$PATH"
 [[ $PATH =~ "$CARGO_HOME/bin" ]] || export PATH="$CARGO_HOME/bin:$PATH"
 [[ $PATH =~ "$GOPATH/bin" ]] || export PATH="$GOPATH/bin:$PATH"
