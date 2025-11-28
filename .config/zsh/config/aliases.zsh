@@ -27,8 +27,6 @@ alias vimdiff='nvim -d'
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip --color=auto'
-alias pacman='pacman --color=auto'
-alias yay='yay --color=auto'
 
 # Colorize the directory tree if outputting to a tty and ignore some files/directories.
 alias tree='CLICOLOR=1 tree -I .git -I .github --gitignore'
