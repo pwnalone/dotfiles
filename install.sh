@@ -122,3 +122,14 @@ curl --proto '=https' --tlsv1.2 -fsSL https://drop-sh.fullyjustified.net | sh -s
 curl --proto '=https' --tlsv1.2 -fsSL https://install.pwndbg.re | sh -s -- -t pwndbg-gdb # Pwndbg
 sudo install -Dm 0755 -t /usr/local/bin tectonic
 popd
+
+# Increase UI scaling for various applications when using HiDPI screens.
+install -D /dev/stdin /etc/environment.d/ui-scale.conf <<EOF
+GDK_SCALE=2
+QT_AUTO_SCREEN_SCALE_FACTOR=0
+QT_ENABLE_HIGHDPI_SCALING=0
+QT_SCALE_FACTOR=2
+EOF
+
+# Make Ghidra read the UI scale from the environment.
+sudo sed -i '/-Dsun.java2d.uiScale=1/s/^/#/' /usr/share/ghidra/support/launch.properties
